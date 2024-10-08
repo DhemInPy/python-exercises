@@ -499,42 +499,285 @@ precos_teste = precos_imoveis[i:]
 # print(precos_teste)
 
 
-precos_imoveis = [2.17,1.54,1.45,1.94,2.37,2.3,1.79,1.8,2.25,1.37,2.4,1.72,2,1.69,1.63,2.01,2.25,1.61,1.02,1.19,1.86,2.15,2.03,1.61,1.52,1.56,1.69,1.47,1.09,2.47,1.62,2.15,1.81,2.49,2.08,1.02,1.68,1.53,1.2,1.29,1.88,1.92,2.14,1.95,2.48,2.44,1.41,1.98,1.89,1.69,1.95,1.42,1.57,2.32,1.23,1.43,1.35,1.49,2.39,2.37,1.3,2.25,1.5,1.35,2.06,1.05,1.7,2.29,2.44,2.09,1.81,2.04,2.45,1.42,2.09,2.19,2.09,1,2.23,1.39,2,1.29,1.55,1.67,2.06,1.89,2.07,2.39,1.93,1.51,1.73,1.66,1.18,1.13,1.69,2.48,1.26,1.75, 1.51, 1.73]
-tamanho_imoveis = [207,148,130,203,257,228,160,194,232,147,222,165,184,175,147,217,214,171,86,111,180,211,210,168,156,154,179,163,99,246,162,205,195,263,198,121,149,140,122,119,197,210,218,202,258,256,135,203,173,152,197,145,154,252,141,141,151,133,232,229,134,215,155,138,186,120,152,213,256,219,200,210,238,140,224,233,222,120,233,151,185,111,149,186,194,194,222,223,185,157,154,164,129,128,169,240,136,191, 157, 154]
+# precos_imoveis = [2.17,1.54,1.45,1.94,2.37,2.3,1.79,1.8,2.25,1.37,2.4,1.72,2,1.69,1.63,2.01,2.25,1.61,1.02,1.19,1.86,2.15,2.03,1.61,1.52,1.56,1.69,1.47,1.09,2.47,1.62,2.15,1.81,2.49,2.08,1.02,1.68,1.53,1.2,1.29,1.88,1.92,2.14,1.95,2.48,2.44,1.41,1.98,1.89,1.69,1.95,1.42,1.57,2.32,1.23,1.43,1.35,1.49,2.39,2.37,1.3,2.25,1.5,1.35,2.06,1.05,1.7,2.29,2.44,2.09,1.81,2.04,2.45,1.42,2.09,2.19,2.09,1,2.23,1.39,2,1.29,1.55,1.67,2.06,1.89,2.07,2.39,1.93,1.51,1.73,1.66,1.18,1.13,1.69,2.48,1.26,1.75, 1.51, 1.73]
+# tamanho_imoveis = [207,148,130,203,257,228,160,194,232,147,222,165,184,175,147,217,214,171,86,111,180,211,210,168,156,154,179,163,99,246,162,205,195,263,198,121,149,140,122,119,197,210,218,202,258,256,135,203,173,152,197,145,154,252,141,141,151,133,232,229,134,215,155,138,186,120,152,213,256,219,200,210,238,140,224,233,222,120,233,151,185,111,149,186,194,194,222,223,185,157,154,164,129,128,169,240,136,191, 157, 154]
+#
+# def separar_listas(precos, tamanho, fator=0.1):
+#     if len(precos) == len(tamanho):
+#         i = int((1 - fator) * len(precos_imoveis))
+#         precos_imoveis_treino = precos[:i]
+#         precos_imoveis_teste = precos[i:]
+#
+#         tamanho_imoveis_teste = tamanho[i:]
+#         tamanho_imoveis_treino = tamanho[:i]
+#         return precos_imoveis_treino, precos_imoveis_teste, tamanho_imoveis_treino, tamanho_imoveis_teste
+#
+#
+#     else:
+#         print('As listas de preços e tamanhos dos imoveis não tem a mesma quantidade de itens')
+#         return
+#
+# precos_treino, precos_teste, tamanho_treino, tamanho_teste = separar_listas(precos_imoveis, tamanho_imoveis)
+#
+# print(precos_teste)
+# print(tamanho_teste)
 
-def separar_listas(precos, tamanho, fator=0.1):
-    if len(precos) == len(tamanho):
-        i = int((1 - fator) * len(precos_imoveis))
-        precos_imoveis_treino = precos[:i]
-        precos_imoveis_teste = precos[i:]
-
-        tamanho_imoveis_teste = tamanho[i:]
-        tamanho_imoveis_treino = tamanho[:i]
-        return precos_imoveis_treino, precos_imoveis_teste, tamanho_imoveis_treino, tamanho_imoveis_teste
 
 
+
+
+'''Docstring e Annotations
+
+
+Estrutura - São ferramentas "apenas" para organização:
+Quando criamos uma função, normalmente não seremos as únicas pessoas a usarem essa função e também pode ser que a gente precise usar essa mesma função semanas, meses ou até anos depois da sua criação.
+
+Por isso é importante usarmos DocStrings e Annotations
+
+
+
+Docstring -> diz o que a função faz, quais valores ela tem como argumento e o que significa cada valor
+Annotation -> diz o que devem ser os argumentos e o que a função retorna
+Em muitas empresas, o time de tecnologia vai ter um padrão que você deve seguir para isso, mas caso não tenha, vamos te mostrar um padrão bom a ser utilizado.
+
+Docstring:'''
+
+
+def minha_soma(num1, num2, num3):
+    '''Faz a soma de 3 números inteiros e devolve como resposta um inteiro
+
+    Parameters:
+        num1 (int): primeiro número a ser somado
+        num2 (int): segundo número a ser somado
+        num3 (int): terceiro número a ser somado
+
+    Returns:
+        soma (int): o valor da soma dos 3 números dados como argumento
+    '''
+    return num1 + num2 + num3
+
+
+
+'''Annotation:
+
+
+def minha_funcao(arg1: isso, arg2: aquilo) -> o que a função retorna:
+    ...
+    return ...
+
+
+def minha_soma(num1: int, num2: int, num3: int) -> int:
+    return num1 + num2 + num'''
+
+
+
+'''EXCEÇÕES E ERROS EM FUNÇÕES
+
+COMO "TESTAR" ERROS E TRATAR EXCEÇÕES
+
+
+try:
+    o que eu quero tentar fazer
+except:
+    o que devo fazer se caso dê erro'''
+
+
+
+def descobrir_servidor(email):
+    try:
+        posicao_a = email.index("@")
+    except:
+        raise ValueError('Email digitado não tem @, digite novamente')
     else:
-        print('As listas de preços e tamanhos dos imoveis não tem a mesma quantidade de itens')
-        return
-
-precos_treino, precos_teste, tamanho_treino, tamanho_teste = separar_listas(precos_imoveis, tamanho_imoveis)
-
-print(precos_teste)
-print(tamanho_teste)
-
-
-
-
-
-
-
-
-
+        confe = email[posicao_a:]
+        if "gmail" in confe:
+            return "gmail"
+        elif "hotmail" in confe or "outlook" in confe or "live" in confe:
+            return "hotmail"
+        elif "yahoo" in confe:
+            return "yahoo"
+        elif 'uol' in confe:
+            return 'uol'
+        else:
+            return "não determinado"
+# email = "dhemiongmail.com"
+#
+# print(descobrir_servidor(email))
 
 
+'''Cuidado: uma vez dentro do try, qualquer erro vai levar ao except
+
+Como "printar" um erro em uma function 
 
 
+raise Exception('O erro foi esse')
+
+ou então avisando qual o tipo de erro que ele teve
+
+raise TypeError('O erro foi esse')
+raise ValueError('O erro foi esse')
+raise ZeroDivisionError('O erro foi esse'
+'''
+
+# def descobrir_servidor(email):
+#     posicao_a = email.index('@')
+#     servidor = email[posicao_a:]
+#     if 'gmail' in servidor:
+#         return 'gmail'
+#     elif 'hotmail' in servidor or 'outlook' in servidor or 'live' in servidor:
+#         return 'hotmail'
+#     elif 'yahoo' in servidor:
+#         return 'yahoo'
+#     elif 'uol' in servidor or 'bol' in servidor:
+#         return 'uol'
+#     else:
+#         return TypeError'não determinado'
 
 
+email = 'dhemisongmail.com'
+# print(descobrir_servidor(email))
 
+
+'''Tratamento Completo:
+
+try:
+    tente fazer isso
+except ErroEspecífico:
+    deu esse erro aqui que era esperado 
+else:
+    caso não dê o erro esperado, rode isso.
+finally:
+    independente do que acontecer, faça isso.
+'''
+
+
+'''Quantidade indefinidas de argumentos 
+Utilidade:
+    Quando você quer permitir uma quantidade indefinida de argumentos, usa o * para isso.
+
+estrutura:
+
+*args para positional arguments -> vêm em formato de tupla
+
+def minha_funcao(*args):
+    ...
+    
+
+**kwargs para keyword arguments -> argumentos vêm em formato de dicionário
+
+def minha_funcao(**kwargs):
+    ...
+    '''
+
+# def minha_soma(*numeros):
+#     print(numeros)
+#     soma = 0
+#     for numero in numeros:
+#         soma += numero
+#     return soma
+# def preco_final(preco, **adicionais):
+#     print(adicionais)
+#     if "desconto" in adicionais:
+#         preco *= (1 - adicionais["desconto"])
+#
+#     if "garantia_extra" in adicionais:
+#         preco += adicionais["garantia_extra"]
+#
+#     if "imposto" in adicionais:
+#         preco *= (1 + adicionais['imposto'])
+#     return preco
+#
+# print(preco_final(1000, imposto=0.1))
+
+'''ORDEM DOS ARGUMENTOS
+
+Extrutura:
+
+    Sempre os positional arguments vêm antes e depois os keywords arguments.
+    Sempre os argumentos individuais vêm antes e depois os "multiplos"
+    
+def minha_funcao(arg1, arg2, arg3, arg4, *args, k=kwarg, k=kwarg2, k=kwarg3, k=kwarg4, k=kwarg5, **kwargs):
+'''
+
+# EXEMPLO
+# def minha_soma(*numeros, num1):
+#     soma = 0
+#     for numero in numeros:
+#         soma += numero
+#     soma += num1
+#     return soma
+#
+# print(minha_soma(1,5,2, num1 = 5))
+
+                                # EXERCÍCIOS
+
+'''
+1. Criando uma Lista de Produtos
+
+Muitas vezes as listas de produtos, de clientes, de funcionários, etc que temos nas empresas não são 100% confiáveis.
+
+Isso significa que na prática, caímos em muitos casos de ter uma lista de produtos, mas quando olhamos por exemplo uma base com a posição em estoque 
+de cada produto, surge nessa 
+"Base" produtos que não existiam na nossa lista inicial.
+
+Então agora vamos fazer uma function justamente com esse objetivo.
+
+Digamos que você receba, 2, 3, 5 ou até 10 bases com a posição em estoque de vários produtos.
+
+Vamos Criar uma function que pega todas essas listas e cria, a partir dela, uma lista de produtos.
+Com o objetivo de saber todos os produtos que temos na empresa. Repare que a function 
+pode receber 1, 2, 3 ou quantas listas de estoque forem necessárias.
+
+Obs: Lembre dos "sets" para fazer a lista de produtos não ter produtos repetidos
+
+lista_estoque1 = [
+    (produto, qtde_estoque),
+    (produto2, qtde_estoque2),
+    ...
+]
+'''
+#crie sua function aqui
+def minha_funcao(*listas):
+    lista_estoque = []
+    for lista in listas:
+        for produto, estoque in lista:
+            lista_estoque.append(produto)
+        lista_estoque = set(lista_estoque)
+        lista_estoque = list(lista_estoque)
+        return lista_estoque
+
+estoque_fim_jan = [('BSA2199', 396), ('PPF5239', 251), ('BSA1212', 989), ('PPF2154', 449), ('BEB3410', 241),
+                   ('PPF8999', 527), ('EMB9591', 601), ('BSA2006', 314), ('EMB3604', 469), ('EMB2070', 733),
+                   ('PPF9018', 339), ('PPF1468', 906), ('BSA5819', 291), ('PPF8666', 850), ('BEB2983', 353),
+                   ('BEB5877', 456), ('PPF5008', 963), ('PPF3877', 185), ('PPF7321', 163), ('BSA8833', 644),
+                   ('PPF4980', 421), ('PPF3063', 757), ('BSA2089', 271), ('BSA8398', 180), ('EMB4622', 515),
+                   ('EMB9814', 563), ('PPF3784', 229), ('PPF2398', 270), ('BEB3211', 181), ('PPF8655', 459),
+                   ('PPF1874', 799), ('PPF8789', 126), ('PPF6324', 375), ('EMB9290', 883), ('BSA5516', 555),
+                   ('BSA8451', 243), ('BSA8213', 423)]
+estoque_fim_fev = [('BSA2199', 849), ('PPF5239', 877), ('BSA1212', 336), ('PPF2154', 714), ('BEB3410', 834),
+                   ('PPF8999', 201), ('EMB9591', 576), ('BSA2006', 985), ('EMB3604', 615), ('EMB2070', 182),
+                   ('PPF9018', 127), ('PPF1468', 212), ('BSA5819', 338), ('PPF8666', 751), ('BEB2983', 363),
+                   ('BEB5877', 916), ('PPF5008', 331), ('PPF3877', 744), ('PPF7321', 488), ('BSA8833', 277),
+                   ('PPF4980', 530), ('PPF3063', 796), ('BSA2089', 396), ('BSA8398', 478), ('EMB4622', 603),
+                   ('EMB9814', 784), ('PPF3784', 434), ('PPF2398', 896), ('BEB3211', 826), ('PPF8655', 748),
+                   ('PPF1874', 210), ('PPF8789', 891), ('PPF6324', 250), ('EMB6618', 611), ('BSA3409', 984),
+                   ('BSA9866', 870), ('BSA1792', 672)]
+estoque_fim_mar = [('BSA2199', 772), ('PPF5239', 394), ('BSA1212', 409), ('PPF2154', 473), ('BEB3410', 831),
+                   ('PPF8999', 764), ('EMB9591', 942), ('BSA2006', 482), ('EMB3604', 745), ('EMB2070', 451),
+                   ('PPF9018', 608), ('PPF1468', 675), ('BSA5819', 431), ('PPF8666', 795), ('BEB2983', 439),
+                   ('BEB5877', 588), ('PPF5008', 442), ('PPF3877', 950), ('PPF7321', 606), ('BSA8833', 464),
+                   ('PPF4980', 819), ('PPF3063', 687), ('BSA2089', 253), ('BSA8398', 437), ('EMB4622', 769),
+                   ('EMB9814', 178), ('PPF3784', 996), ('PPF2398', 588), ('BEB3211', 247), ('PPF8655', 309),
+                   ('PPF1874', 305), ('PPF8789', 878), ('PPF6324', 826), ('EMB6618', 534), ('BSA3409', 705),
+                   ('BSA9895', 618), ('BSA4319', 690)]
+estoque_fim_abr = [('BSA2199', 647), ('PPF5239', 292), ('BSA1212', 551), ('PPF2154', 802), ('BEB3410', 712),
+                   ('PPF8999', 603), ('EMB9591', 963), ('BSA2006', 481), ('EMB3604', 199), ('EMB2070', 635),
+                   ('PPF9018', 956), ('PPF1468', 161), ('BSA5819', 787), ('PPF8666', 771), ('BEB2983', 867),
+                   ('BEB5877', 539), ('PPF5008', 614), ('PPF3877', 715), ('PPF7321', 336), ('BSA8833', 961),
+                   ('PPF4980', 116), ('PPF3063', 876), ('BSA2089', 579), ('BSA8398', 814), ('EMB4622', 434),
+                   ('EMB9814', 981), ('PPF3784', 498), ('PPF2398', 498), ('BEB3211', 606), ('PPF8655', 168),
+                   ('PPF1874', 518), ('PPF8789', 157), ('PPF6324', 501), ('EMB6618', 932), ('BSA3409', 247),
+                   ('BSA9895', 287), ('BSA4319', 477)]
+# agora aplique com as listas fornecidas para ver se ela está funcionando
+todo_estoque = minha_funcao(estoque_fim_jan, estoque_fim_fev, estoque_fim_mar, estoque_fim_abr)
 
