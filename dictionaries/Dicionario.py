@@ -80,11 +80,11 @@
 Estrutura:
 dicionario = {chave: valor, chave: valor, chave: valor, chave: valor ...}
 
-Vantagens e Desvantagens
-Não devem ser usados para pegar itens em uma determinada ordem
-Podem ter valores heterogêneos (vários tipos de valores dentro de um mesmo dicionário: inteiros, strings, listas, etc)
-Chaves são únicas obrigatoriamente
-Mais intuitivos de trabalhar'''
+Vantagens e Desvantagens:
+    - Não devem ser usados para pegar itens em uma determinada ordem
+    - Podem ter valores heterogêneos (vários tipos de valores dentro de um mesmo dicionário: inteiros, strings, listas, etc)
+    - Chaves são únicas obrigatoriamente
+    - Mais intuitivos de trabalhar'''
 
 
 mais_vendidos = {'tecnologia': 'iphone', 'refrigeracao': 'ar consul 12000 btu', 'livros': 'o alquimista', 'eletrodoméstico': 'geladeira', 'lazer': 'prancha surf'}
@@ -95,12 +95,12 @@ vendas_tecnologia = {'iphone': 15000, 'samsung galaxy': 12000, 'tv samsung': 100
 
 '''Qual foi o item mais vendido nas categorias 'livros' e 'lazer'?
 Quanto foi vendido de 'notebook asus' e de 'ipad'?'''
-# livros = mais_vendidos.get('livros')
-# lazer = mais_vendidos['lazer']
+livros = mais_vendidos.get('livros')
+lazer = mais_vendidos['lazer']
 # print(livros,',',lazer)
-#
-# vendas_note = vendas_tecnologia.get('notebook dell')
-# vendas_ipad = vendas_tecnologia['ipad']
+
+vendas_note = vendas_tecnologia.get('notebook dell')
+vendas_ipad = vendas_tecnologia['ipad']
 # print('Foram vendidos {} unidades de ipad'.format((vendas_ipad)))
 # print('Foram vendidos {} unidades de notebook dell'.format((vendas_note)))
 
@@ -110,28 +110,30 @@ Quanto foi vendido de 'notebook asus' e de 'ipad'?'''
 
 '''Não confie na ordem dos dicionários, use as chaves
 Python Versões Antigas x Versões Novas
-Dicionários eram "sem ordem". Atualmente tem ordem, mas o certo é usar as chaves
-2 formas de pegar um valor:
-dicionario[chave]
-.get(chave)'''
+    - Dicionários eram "sem ordem". Atualmente tem ordem, mas o certo é usar as chaves
+    - 2 formas de pegar um valor:
+        * dicionario[chave]
+        * .get(chave)'''
 
 
 mais_vendidos = {'tecnologia': 'iphone', 'refrigeracao': 'ar consul 12000 btu', 'livros': 'o alquimista', 'eletrodoméstico': 'geladeira', 'lazer': 'prancha surf'}
-vendas_tecnologia = {"copo":5658 ,'iphone': 15000, 'samsung galaxy': 12000, 'tv samsung': 10000, 'ps5': 14300, 'tablet': 1720, 'ipad': 1000, 'tv philco': 2500, 'notebook hp': 1000, 'notebook dell': 17000, 'notebook asus': 2450}
+vendas_tecnologia = {'iphone': 15000, 'samsung galaxy': 12000, 'tv samsung': 10000, 'ps5': 14300, 'tablet': 1720, 'ipad': 1000, 'tv philco': 2500, 'notebook hp': 1000, 'notebook dell': 17000, 'notebook asus': 2450}
 
 
 '''Verificar se item está no dicionário:
-if
-.get(chave) = None
-Se tentarmos procurar as vendas de "copo" na lista de vendas tecnologia, o que acontece?'''
-# if vendas_tecnologia.get('copo') == None:
-#     print('Não tem copo dentro de vendas tecnologia')
+    - if
+    - .get(chave) = None
 
-    # '''### OOOOOOUUUUUU ####'''
-# if "copo" in vendas_tecnologia:
-#     print('tem copo')
+Se tentarmos procurar as vendas de "copo" na lista de vendas tecnologia, o que acontece?'''
+# if 'copoa' in vendas_tecnologia:
+#     print(vendas_tecnologia['copo'])
 # else:
-#     print('não tem copo')
+#     print('Copo não foi encontrado dentro da vendas tecnologia')
+    # '''### OOOOOOUUUUUU ####'''
+# if vendas_tecnologia.get("copo") == None:
+#     print('Copo não foi encontrado dentro da vendas tecnologia')
+# else:
+#     print(vendas_tecnologia.get('copo'))
 
 
 
@@ -149,19 +151,19 @@ outra opção:
 
 dicionario.update({chave: valor, chave: valor})'''
 
-# lucro_1tri = {'janeiro': 100000, 'fevereiro': 120000, 'março': 90000}
-# lucro_2tri = {'abril': 88000, 'maio': 89000, 'junho': 120000}
+lucro_1tri = {'janeiro': 100000, 'fevereiro': 120000, 'março': 90000}
+lucro_2tri = {'abril': 88000, 'maio': 89000, 'junho': 120000}
+
 # Adicionando 1 item
-# print(lucro_1tri)
-# lucro_1tri['abril'] = 8004
+lucro_1tri['julho'] = 5006
 # print(lucro_1tri)
 
 # Adicionando vários itens ou um dicionário a outro
-# lucro_1tri.update({'abril': 88000, 'maio': 89000, 'junho': 120000})
+lucro_1tri.update(lucro_2tri)
 # print(lucro_1tri)
 
 # Adicionando um item já existente (manualamente ou pelo update)
-# lucro_1tri['janeiro'] = 8474
+lucro_1tri['janeiros'] = 231
 # print(lucro_1tri)
 
 
@@ -190,12 +192,13 @@ mas cuidado com:
 del dicionario
         l-> que é diferente de dicionario.clear()'''
 # removendo o mês de junho
-# del lucro_1tri['junho']
-# print(lucro_1tri)
-#
-# lucro_1tri.pop('maio')
+del lucro_1tri['janeiro']
 # print(lucro_1tri)
 
+# Usando .pop
+remv = lucro_1tri.pop('janeiros')
+# print(lucro_1tri)
+# print(remv)
 # Obs: o del também funciona para listas, caso queira usar -> del lista[i]
 # funcionarios = ["João", "Dhemison", "Programador", "Excelente"]
 # print(funcionarios)
@@ -216,7 +219,9 @@ vendas_tecnologia = {'iphone': 15000, 'samsung galaxy': 12000, 'tv samsung': 100
 
 #demonstrando o for
 # for chave in vendas_tecnologia:
-#     print('{}: {} unidades'.format(chave,vendas_tecnologia[chave]))
+    # print('{}: {} unidades'.format(chave,vendas_tecnologia[chave]))
+
+
 
 # Qual o total de notebooks vendidos?
 # total_note = 0
@@ -276,6 +281,7 @@ niveis_co2 = {
 }
 
 
+
 # for cidades in niveis_co2:
 #     qntd_censores = len(niveis_co2[cidades])
 #     nivel_alto = sum(niveis_co2[cidades]) / qntd_censores
@@ -296,12 +302,10 @@ A alternativa é gerar um código em Python que converse com a API do Vimeo
 Para resolver isso, a gente fez a integração e fizemos uma "requisição" de todos os vídeos para a Vimeo. 
 Essa requisição dá como resposta para o nosso código isso:'''
 
-# video = {'uri': '/videos/465407533', 'name': '15 Atalhos no Excel para Ficar Mais Produtivo', 'download': [{'quality': 'source', 'type': 'source', 'width': 1920, 'height': 1080, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064518513?s=465407533_1602043255_5f2f93dd00b66eba66d481f913383b4f&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivosource.mp4', 'created_time': '2020-10-06T14:26:17+00:00', 'fps': 30, 'size': 402678442, 'md5': 'af09508ceceed4994554f04e8b931e22', 'public_name': 'Original', 'size_short': '384.02MB'}, {'quality': 'hd', 'type': 'video/mp4', 'width': 1920, 'height': 1080, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064523157?s=465407533_1602043255_ab7b8353c59b5048032396ec5d95a276&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo175.mp4', 'created_time': '2020-10-06T14:29:06+00:00', 'fps': 30, 'size': 173556205, 'md5': '3c05e1e69bd6b13eb1464451033907d2', 'public_name': 'HD 1080p', 'size_short': '165.52MB'}, {'quality': 'sd', 'type': 'video/mp4', 'width': 960, 'height': 540, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064523153?s=465407533_1602043255_f5ac38009ec5c0a13b30600c631446a3&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo165.mp4', 'created_time': '2020-10-06T14:29:06+00:00', 'fps': 30, 'size': 89881848, 'md5': '4a5c5c96cdf18202ed20ca534fd88007', 'public_name': 'SD 540p', 'size_short': '85.72MB'}, {'quality': 'sd', 'type': 'video/mp4', 'width': 426, 'height': 240, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064522788?s=465407533_1602043255_16c69872e2c4e92cc949d0b772242959&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo139.mp4', 'created_time': '2020-10-06T14:28:31+00:00', 'fps': 30, 'size': 27401450, 'md5': '91cc0229087ec94bf67f64b01ad8768d', 'public_name': 'SD 240p', 'size_short': '26.13MB'}, {'quality': 'sd', 'type': 'video/mp4', 'width': 640, 'height': 360, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064522787?s=465407533_1602043255_310b087e2fc8c5e1154ce7a33d10d60e&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo164.mp4', 'created_time': '2020-10-06T14:28:31+00:00', 'fps': 30, 'size': 48627155, 'md5': '548640bf79ce1552a3401726bb0e4224', 'public_name': 'SD 360p', 'size_short': '46.37MB'}]}
-#
-# for vimeo in video:
-#     print(vimeo)
-# # print(video['download'])
-# print(video['download'][0]['link'])
+video = {'uri': '/videos/465407533', 'name': '15 Atalhos no Excel para Ficar Mais Produtivo', 'download': [{'quality': 'source', 'type': 'source', 'width': 1920, 'height': 1080, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064518513?s=465407533_1602043255_5f2f93dd00b66eba66d481f913383b4f&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivosource.mp4', 'created_time': '2020-10-06T14:26:17+00:00', 'fps': 30, 'size': 402678442, 'md5': 'af09508ceceed4994554f04e8b931e22', 'public_name': 'Original', 'size_short': '384.02MB'}, {'quality': 'hd', 'type': 'video/mp4', 'width': 1920, 'height': 1080, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064523157?s=465407533_1602043255_ab7b8353c59b5048032396ec5d95a276&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo175.mp4', 'created_time': '2020-10-06T14:29:06+00:00', 'fps': 30, 'size': 173556205, 'md5': '3c05e1e69bd6b13eb1464451033907d2', 'public_name': 'HD 1080p', 'size_short': '165.52MB'}, {'quality': 'sd', 'type': 'video/mp4', 'width': 960, 'height': 540, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064523153?s=465407533_1602043255_f5ac38009ec5c0a13b30600c631446a3&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo165.mp4', 'created_time': '2020-10-06T14:29:06+00:00', 'fps': 30, 'size': 89881848, 'md5': '4a5c5c96cdf18202ed20ca534fd88007', 'public_name': 'SD 540p', 'size_short': '85.72MB'}, {'quality': 'sd', 'type': 'video/mp4', 'width': 426, 'height': 240, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064522788?s=465407533_1602043255_16c69872e2c4e92cc949d0b772242959&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo139.mp4', 'created_time': '2020-10-06T14:28:31+00:00', 'fps': 30, 'size': 27401450, 'md5': '91cc0229087ec94bf67f64b01ad8768d', 'public_name': 'SD 240p', 'size_short': '26.13MB'}, {'quality': 'sd', 'type': 'video/mp4', 'width': 640, 'height': 360, 'expires': '2020-10-07T04:00:55+00:00', 'link': 'https://player.vimeo.com/play/2064522787?s=465407533_1602043255_310b087e2fc8c5e1154ce7a33d10d60e&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CVideosController.&download=1&filename=15%2BAtalhos%2Bno%2BExcel%2Bpara%2BFicar%2BMais%2BProdutivo164.mp4', 'created_time': '2020-10-06T14:28:31+00:00', 'fps': 30, 'size': 48627155, 'md5': '548640bf79ce1552a3401726bb0e4224', 'public_name': 'SD 360p', 'size_short': '46.37MB'}]}
+
+# for chaves in video:
+#     print(video['download'])
 
 '''Repare que é um código completamente confuso, mas que no fim do dia é um dicionário.
 
@@ -332,9 +336,9 @@ for item in dicionario.items()
 >>>>>> cada item do dicionario em formato de tupla <<<<<<<<
 '''
 vendas_tecnologia = {'notebook asus': 2450, 'iphone': 15000, 'samsung galaxy': 12000, 'tv samsung': 10000, 'ps5': 14300, 'tablet': 1720, 'notebook dell': 17000, 'ipad': 1000, 'tv philco': 2500, 'notebook hp': 1000}
+# item_dicio = vendas_tecnologia.items()
+# print(item_dicio)
 
-# for produto, qntd in vendas_tecnologia.items():
-#     print(produto,':', qntd, 'unidades')
 
 '''  Quais produtos venderam mais de 5000 unidades?   '''
 
@@ -356,13 +360,15 @@ Métodos importantes:
 .values() -> uma "lista" com todos os valores do dicionario
 
 Obs: Se o dicionario for modificado, automaticamente essas variáveis são modificadas, mesmo tendo sido criadas anteriormente'''
-# chaves = vendas_tecnologia.keys()
-# valores = vendas_tecnologia.values()
-# vendas_tecnologia['Dhemisin'] = 100
-# print(chaves)
-# print(valores)
-# print(list(valores))
-
+chaves_produtos = vendas_tecnologia.keys()
+value_produtos = vendas_tecnologia.values()
+# print('\n',value_produtos)
+# print('\n',chaves_produtos)
+#
+#
+# vendas_tecnologia['DhemisPhone'] = 50
+# print('\n',value_produtos)
+# print('\n',chaves_produtos)
 
 'O for vai funcionar normal em dict_listas, porque não deixa de ser uma lista de itens que pode ser percorrida (iterable), mas o que aprendemos '
 'de lista não necessariamente se aplicam a essas dict_listas.Para transformar as dict_listas em listas normais, usamos a função list:'
@@ -372,9 +378,12 @@ Obs: Se o dicionario for modificado, automaticamente essas variáveis são modif
 'Pode ser útil caso a gente queira fazer alguma organização das chaves. Ex: Imprimir uma lista com os valores em ordem alfabética, de forma que todas as tvs fiquem juntas, todos os iphone/ipad também e assim vai'''
 
 
-#agora se quisermos organizar isso, fazemos:
-# listas_chaves = list(chaves)
-# listas_chaves.sort()
+# agora se quisermos organizar isso, fazemos:
+listas_chaves = list(chaves_produtos)
+listas_chaves.sort()
+listas_chaves.remove(listas_chaves[2])
+
+
 # for chave in listas_chaves:
 #     print('{}: {} unidades.'.format(chave, vendas_tecnologia[chave]))
 
@@ -403,22 +412,24 @@ dicionario = dict(lista_tuplas)'''
 produtos = ['iphone', 'samsung galaxy', 'tv samsung', 'ps5', 'tablet', 'ipad', 'tv philco', 'notebook hp', 'notebook dell', 'notebook asus']
 vendas = [15000, 12000, 10000, 14300, 1720, 1000, 2500, 1000, 17000, 2450]
 
-#
-# print(produtos)
+lista_tuplas = zip(produtos,vendas)
+dicio = dict(lista_tuplas)
+
 # trans_em_tuplas = zip(produtos,vendas)
 # print(trans_em_tuplas)
 # dicionario = dict(trans_em_tuplas)
 # print(dicionario)
 
 
-'''Quanto vendemos de ipad?'''
-# #fazendo por listas
-# i_ipad = produtos.index('ipad')
-# print('vendemos {} unidades de {}'.format(vendas[i_ipad], produtos[i_ipad]))
+'''Quanto vendemos de ipad?
+#fazendo por listas'''
+index = produtos.index("ps5")
+# print('Vendemos {} unidades de {}'.format(vendas[index], produtos[index]))
 
-#fazendo por dicionario
+'''fazendo por dicionario'''
 # tupla = zip(produtos, vendas)
 # dicio = dict(tupla)
+# print('Vendemos {} unidades de ps5'.format(dicio['ps5']))
 #
 # print('vendemos {} unidades de ipad'.format(dicio['ipad']))
 
@@ -443,19 +454,18 @@ Obs2: Repare que cada item das vendas é na verdade uma lista. Então é prováv
 
 
 produtos = ['iphone', 'galaxy', 'ipad', 'tv', 'máquina de café', 'kindle', 'geladeira', 'adega', 'notebook dell', 'notebook hp', 'notebook asus', 'microsoft surface', 'webcam', 'caixa de som', 'microfone', 'câmera canon']
+
 vendas2019 = [558147,712350,573823,405252,718654,531580,973139,892292,422760,154753,887061,438508,237467,489705,328311,591120]
 vendas2020 = [951642,244295,26964,787604,867660,78830,710331,646016,694913,539704,324831,667179,295633,725316,644622,994303]
 
 
-tupla = list(zip(vendas2019,vendas2020))
-dio = list(zip(produtos,tupla))
+zip_vendas = zip(vendas2019, vendas2020)
+lista_tuplas = list(zip_vendas)
+dicio_produtos = zip(produtos, lista_tuplas)
+diciona = dict(dicio_produtos)
 
-zipado = dict(dio)
-print(zipado)
-
-# for chaves in zipado:
-#     print(chaves, zipado[chaves])
-
+for produto in diciona:
+    print(produto, diciona[produto])
 
 '''                                            # EXERCIOS EXTRAS #                                         '''
 
@@ -469,12 +479,14 @@ print(zipado)
 # - Caso o produto não exista na lista de produtos, o programa deve printar uma mensagem para o usuário tentar novamente
 precos = {"celular": 1500, "camera": 1000, "fone de ouvido": 800, "monitor": 2000}
 
-produto = input('Nome do produto: ')
+# print(precos)
 
-if produto in precos.keys():
-    print('PRODUTO: {} VALOR: R${} reais'.format(produto, precos[produto]))
-else:
-    print('Tente novamente!')
+# produto = input('Nome do produto: ')
+
+# if produto in precos.keys():
+#     print('PRODUTO: {} VALOR: R${} reais'.format(produto, precos[produto]))
+# else:
+#     print('Tente novamente!')
 
 
 # Exercício 2
@@ -579,19 +591,18 @@ for mes in vendas_22:
     if vendas_23[mes] < vendas_22[mes]:
         vendas_23[mes] = vendas_22[mes]
 
-for mes in vendas_22:
-    crescimento = ( vendas_23[mes] - vendas_22[mes]) / vendas_22[mes] * 100
-    if crescimento < 0:
-        print('Mês de {} ficou negativo, com {:.2f}%'.format(mes,crescimento))
-
-    else:
-        print('Mês de {} teve {:.2f}% de aumento'.format(mes, crescimento,))
+# for mes in vendas_22:
+#     crescimento = ( vendas_23[mes] - vendas_22[mes]) / vendas_22[mes] * 100
+#     if crescimento < 0:
+#         print('Mês de {} ficou negativo, com {:.2f}%'.format(mes,crescimento))
+#
+#     else:
+#         print('Mês de {} teve {:.2f}% de aumento'.format(mes, crescimento,))
 
 valor_total_22 = sum(vendas_22.values())
 valor_total_23 = sum(vendas_23.values())
 
-print('O crescimento de 2023 seria de {:.2f}%'.format((valor_total_23 - valor_total_22) / valor_total_22 * 100))
-
+resultato = 'O crescimento de 2023 seria de {:.2f}%'.format((valor_total_23 - valor_total_22) / valor_total_22 * 100)
 
 
 
