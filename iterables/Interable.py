@@ -66,7 +66,7 @@ range(inicio, fim, passo)'''
 # print(range(1, 10))
 
 #vamos olhar no for para entender
-# for i in range(1,10):
+# for i in range(5,10):
 #     print(i)
 
 
@@ -77,13 +77,14 @@ Classe B: 80% mantém/busca melhorar
 Classe C: 10% pior
 Quem são os funcionários classe B?'''
 
-# funcionarios = ['Maria', 'José', 'Antônio', 'João', 'Francisco', 'Ana', 'Luiz', 'Paulo', 'Carlos', 'Manoel', 'Pedro', 'Francisca', 'Marcos', 'Raimundo', 'Sebastião', 'Antônia', 'Marcelo', 'Jorge', 'Márcia', 'Geraldo']
-# vendas = [2750, 1900, 1500, 1200, 1111, 1100, 999, 900, 880, 870, 800, 800, 450, 400, 300, 300, 120, 90, 80, 70]
-#
+funcionarios = ['Maria', 'José', 'Antônio', 'João', 'Francisco', 'Ana', 'Luiz', 'Paulo', 'Carlos', 'Manoel', 'Pedro', 'Francisca', 'Marcos', 'Raimundo', 'Sebastião', 'Antônia', 'Marcelo', 'Jorge', 'Márcia', 'Geraldo']
+vendas = [2750, 1900, 1500, 1200, 1111, 1100, 999, 900, 880, 870, 800, 800, 450, 400, 300, 300, 120, 90, 80, 70]
+
 # print('Funcionário classe B:')
 # for i in range(2,18):
-#     print('Funcionário {} fez {} vendas.'.format(funcionarios[i], vendas[i]))
-#
+#     print("Funcionário {} fez {} unidades".format(funcionarios[i], vendas[i]))
+
+
 # print('-'*50)
 #
 # for i in range(0,18,3):
@@ -98,16 +99,20 @@ Observações:
 Não pode ter valores duplicados
 Não tem ordem fixa'''
 
-# set_produtos = {'arroz', 'feijao', 'macarrao', 'atum', 'azeite'}
+set_produtos = {'arroz', 'feijao', 'macarrao', 'atum', 'azeite'}
+
 # print(set_produtos)
 
 '''Aplicação bem útil:
 
 Quantos clientes tivemos na loja?'''
 
-# cpf_clientes = ['762.196.080-97', '263.027.380-67', '827.363.930-40', '925.413.640-91', '870.565.160-33', '892.080.930-50', '462.126.030-81', '393.462.330-10', '393.462.330-10', '393.462.330-10', '988.305.810-11', '596.125.830-05', '596.125.830-05', '990.236.770-48']
-# set_cliente = set(cpf_clientes)
-# print('temos {} clientes na loja.'.format(len(cpf_clientes)))
+cpf_clientes = ['762.196.080-97', '263.027.380-67', '827.363.930-40', '925.413.640-91', '870.565.160-33', '892.080.930-50', '462.126.030-81', '393.462.330-10', '393.462.330-10', '393.462.330-10', '988.305.810-11', '596.125.830-05', '596.125.830-05', '990.236.770-48']
+set_cliente = set(cpf_clientes)
+clientes_unicos = list(set_cliente)
+
+print(len(clientes_unicos))
+print('temos {} clientes na loja.'.format(len(clientes_unicos)))
 
 
 '''Métodos de Sets
@@ -141,10 +146,10 @@ ele constará apenas 1 vez no set final'''
 
 '''difference -> retorna todas as informações de um set que não fazem parte de outro set'''
 
-produtos = {'iphone', 'macbook', 'ipad'}
-lancamentos = {'airpod', 'apple watch', 'ipod', 'ipad'}
-produtos_nao_lancamentos = produtos.difference(lancamentos)
-print(produtos_nao_lancamentos) #repare que ipad foi retirado do resultado porque ele estava contido no set de lançamentos
+# produtos = {'iphone', 'macbook', 'ipad'}
+# lancamentos = {'airpod', 'apple watch', 'ipod', 'ipad'}
+# produtos_nao_lancamentos = produtos.difference(lancamentos)
+# print(produtos_nao_lancamentos) #repare que ipad foi retirado do resultado porque ele estava contido no set de lançamentos
 
 
 
