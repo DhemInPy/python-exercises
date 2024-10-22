@@ -11,7 +11,7 @@
 
 
 - [Dictionaries:](https://github.com/DhemInPy/python-exercises/tree/main/dictionaries)
-  - [X] Cursando!
+  - [X] Concluída com sucess
 
 
 - [Laços While (While Loops):](https://github.com/DhemInPy/python-exercises/tree/main/while_loops)
